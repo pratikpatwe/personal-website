@@ -36,7 +36,7 @@ export default function Hero() {
           "
         ></div>
         <Image
-          src="https://raw.githubusercontent.com/pratikpatwe/personal-website/refs/heads/main/app/pratikpatwe.jpg"
+          src="https://raw.githubusercontent.com/pratikpatwe/personal-website/refs/heads/main/app/pratik.jpg"
           alt="Pratik Patwe"
           width={200}
           height={200}
