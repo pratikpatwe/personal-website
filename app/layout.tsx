@@ -6,8 +6,8 @@ import ParticleBackground from '@/components/ParticleBackground'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Pratik Patwe - Tech Innovator',
-  description: '18-year-old visionary shaping the future of technology',
+  title: 'Pratik Patwe - Tech Enthusiast',
+  description: 'an 18-year-old developer building cool stuff and exploring AI',
 }
 
 export default function RootLayout({

@@ -106,7 +106,7 @@ export default function Hero() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        Hey, I&apos;m Pratik — <span className="bg-primary/10 dark:bg-primary/20 px-2 py-1 rounded-lg text-primary dark:text-primary/80">an 18-year-old developer</span> building cool stuff and exploring AI
+        Hey, I&apos;m <span className="bg-primary/10 dark:bg-primary/20 px-2 py-1 rounded-lg text-primary dark:text-primary/80">an 18-year-old developer</span> building cool stuff and exploring AI
       </motion.p>
 
       {/* Social Icons with Enhanced Hover and Mode Adaptation */}

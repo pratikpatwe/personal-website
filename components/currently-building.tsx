@@ -46,7 +46,7 @@ export default function CurrentlyBuilding() {
                 </div>
                 <div className="md:w-1/3">
                   <form className="flex flex-col gap-4">
-                    <Input type="email" placeholder="Enter your email" />
+                    <Input type="email" placeholder="richard@piedpiper.com" />
                     <Button type="submit">Pre-register</Button>
                   </form>
                 </div>
