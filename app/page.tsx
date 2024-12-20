@@ -39,15 +39,15 @@ export default function Home() {
       <div className="fixed top-4 right-4 z-50">
         <ThemeToggle />
       </div>
-      <nav className="fixed left-0 right-0 bottom-4 z-50 px-4">
-        <ul className="flex justify-center space-x-2 md:space-x-4 bg-background/50 dark:bg-background/30 backdrop-blur-md rounded-full px-2 py-2 shadow-lg max-w-full overflow-x-auto">
+      <nav className="fixed left-4 right-4 bottom-4 md:left-1/2 md:-translate-x-1/2 z-50 md:w-auto">
+        <ul className="flex justify-center space-x-2 md:space-x-3 bg-background/50 dark:bg-background/30 backdrop-blur-md rounded-full px-3 py-2 shadow-lg max-w-full overflow-x-auto">
           {['hero', 'building', 'launches', 'achievements', 'shoutouts', 'contact'].map((section) => (
             <li key={section}>
               <a
                 href={`#${section}`}
-                className={`text-xs md:text-sm font-medium px-2 py-1 rounded-full ${
+                className={`text-xs md:text-sm font-medium px-2 md:px-3 py-1 rounded-full whitespace-nowrap ${
                   currentSection === section ? 'bg-primary text-primary-foreground' : 'text-muted-foreground'
-                } hover:text-primary transition-colors`}
+                } transition-colors`}
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </a>
@@ -76,3 +76,4 @@ export default function Home() {
     </main>
   )
 }
+

@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 
 export default function Hero() {
   return (
-    <div className="relative text-center z-10 flex flex-col items-center px-4 w-full max-w-4xl mx-auto pt-24 md:pt-24 overflow-hidden">
+    <div className="relative text-center z-10 flex flex-col items-center px-4 w-full max-w-4xl mx-auto pt-32 sm:pt-24 overflow-hidden">
       {/* Remove the background div */}
       
       {/* Animated Profile Image Container */}
