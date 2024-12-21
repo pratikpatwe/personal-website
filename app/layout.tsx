@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from 'next-themes'
 import ParticleBackground from '@/components/ParticleBackground'
+import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,6 +16,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const buildId = process.env.BUILD_ID || Date.now()
+
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body className={`${inter.className} bg-background text-foreground`}>
@@ -29,8 +32,19 @@ export default function RootLayout({
           <ParticleBackground />
           {children}
         </ThemeProvider>
+        <Script id="cache-bust" strategy="afterInteractive">
+          {`
+            (function() {
+              var scripts = document.getElementsByTagName('script');
+              for (var i = 0; i < scripts.length; i++) {
+                if (scripts[i].src && scripts[i].src.indexOf('_next/static') !== -1) {
+                  scripts[i].src = scripts[i].src + '?v=${buildId}';
+                }
+              }
+            })();
+          `}
+        </Script>
       </body>
     </html>
   )
 }
-
