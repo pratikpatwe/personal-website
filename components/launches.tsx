@@ -13,13 +13,13 @@ const launches = [
     visit: "https://ecotrack.app"
   },
   {
-    name: "CodeCollab",
-    logo: "/placeholder.svg?height=50&width=50",
-    launchDate: "November 2023",
-    image: "/placeholder.svg?height=360&width=640",
-    description: "Real-time collaborative coding platform with integrated AI code suggestions.",
+    name: "FinScan",
+    logo: "https://fin-scan-gules.vercel.app/FinScan.png",
+    launchDate: "November 2024",
+    image: "https://raw.githubusercontent.com/pratikpatwe/personal-website/refs/heads/main/app/public-images/FinScan-UI.jpg",
+    description: "AI-powered tool that analyzes uploaded bank statements and provides personalized spending suggestions to improve financial management.",
     github: "https://github.com/your-handle/codecollab",
-    visit: "https://codecollab.app"
+    visit: "https://fin-scan-gules.vercel.app/"
   },
 ]
 
@@ -51,7 +51,7 @@ export default function Launches() {
                   alt={`${launch.name} logo`}
                   width={40}
                   height={40}
-                  className="rounded-full mr-4"
+                  className="rounded-lg mr-4"
                 />
                 <div>
                   <CardTitle>{launch.name}</CardTitle>
@@ -76,4 +76,3 @@ export default function Launches() {
     </div>
   )
 }
-
