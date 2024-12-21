@@ -1,6 +1,6 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { ThemeProvider } from '@/components/theme-provider'
+import { ThemeProvider } from 'next-themes'
 import ParticleBackground from '@/components/ParticleBackground'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -24,6 +24,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+          <meta name="theme-color" content="#020818" media="(prefers-color-scheme: dark)" />
           <ParticleBackground />
           {children}
         </ThemeProvider>
@@ -31,3 +33,4 @@ export default function RootLayout({
     </html>
   )
 }
+
