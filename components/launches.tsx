@@ -18,7 +18,7 @@ const launches = [
     launchDate: "November 2024",
     image: "https://raw.githubusercontent.com/pratikpatwe/personal-website/refs/heads/main/app/public-images/FinScan-UI.jpg",
     description: "AI-powered tool that analyzes uploaded bank statements and provides personalized spending suggestions to improve financial management.",
-    github: "https://github.com/your-handle/codecollab",
+    github: "https://github.com/pratikpatwe/FinScan",
     visit: "https://fin-scan-gules.vercel.app/"
   },
 ]
