@@ -9,6 +9,12 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata = {
   title: 'Pratik Patwe - Tech Enthusiast',
   description: 'an 18-year-old developer building cool stuff and exploring AI',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' }
+    ]
+  },
+  manifest: '/manifest.json',
 }
 
 export default function RootLayout({
