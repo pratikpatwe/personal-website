@@ -6,9 +6,7 @@ import { cn } from '@/lib/utils'
 
 export default function Hero() {
   return (
-    <div className="relative text-center z-10 flex flex-col items-center px-4 w-full max-w-4xl mx-auto pt-32 sm:pt-24 overflow-hidden">
-      {/* Remove the background div */}
-      
+    <div className="relative text-center z-10 flex flex-col items-center px-4 w-full max-w-4xl mx-auto pt-36 md:pt-24 overflow-hidden">
       {/* Animated Profile Image Container */}
       <motion.div
         initial={{ scale: 0, opacity: 0 }}
@@ -38,9 +36,10 @@ export default function Hero() {
         <Image
           src="https://raw.githubusercontent.com/pratikpatwe/personal-website/refs/heads/main/app/pratik.jpg"
           alt="Pratik Patwe"
-          width={200}
-          height={200}
+          width={300}
+          height={300}
           priority
+          quality={100}
           className="relative 
             rounded-2xl 
             border-2 
