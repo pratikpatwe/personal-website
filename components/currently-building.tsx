@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
@@ -26,22 +26,23 @@ export default function CurrentlyBuilding() {
   const [isRegistered, setIsRegistered] = useState(false)
   const [userId, setUserId] = useLocalStorage('pratik-patwe-user-id', '')
 
-  useEffect(() => {
-    if (!userId) {
-      setUserId(uuidv4())
-    } else {
-      checkRegistrationStatus()
-    }
-  }, [userId, setUserId])
-
-  const checkRegistrationStatus = async () => {
+  const checkRegistrationStatus = useCallback(async () => {
+    if (!userId) return
     const userRef = ref(database, `preregistrations/${userId}`)
     const snapshot = await get(userRef)
     if (snapshot.exists()) {
       setIsRegistered(true)
       setEmail(snapshot.val().email)
     }
-  }
+  }, [userId])
+
+  useEffect(() => {
+    if (!userId) {
+      setUserId(uuidv4())
+    } else {
+      checkRegistrationStatus()
+    }
+  }, [userId, setUserId, checkRegistrationStatus])
 
   const handlePreRegister = (e: React.FormEvent) => {
     e.preventDefault()
@@ -58,7 +59,7 @@ export default function CurrentlyBuilding() {
       setIsModalOpen(false)
       setIsRegistered(true)
       toast.success(
-        "Success! You've been registered. Get ready for exciting updates coming your way!",
+        "🎉 Success! You've been registered. Get ready for exciting updates coming your way!",
         {
           duration: 5000,
           position: 'bottom-center',
@@ -68,7 +69,7 @@ export default function CurrentlyBuilding() {
             padding: '16px',
             borderRadius: '10px',
           },
-          icon: '🤟',
+          icon: '🚀',
         }
       )
     } catch (error) {
@@ -133,7 +134,7 @@ export default function CurrentlyBuilding() {
                     </form>
                   ) : (
                     <div className="text-center">
-                      <p className="text-green-500 font-semibold mb-2">You're registered!</p>
+                      <p className="text-green-500 font-semibold mb-2">You&apos;re registered!</p>
                       <Button onClick={() => setIsRegistered(false)}>Update Email</Button>
                     </div>
                   )}
@@ -154,7 +155,7 @@ export default function CurrentlyBuilding() {
           </DialogHeader>
           <div className="flex flex-col items-center justify-center space-y-4 mt-4">
             <p className="text-sm text-muted-foreground text-center">
-              If you're excited to join the journey, press 'Continue' to proceed.
+              If you&apos;re excited to join the journey, press &apos;Continue&apos; to proceed.
             </p>
             <DialogFooter className="flex flex-col sm:flex-row sm:justify-center w-full gap-2">
               <Button onClick={() => setIsModalOpen(false)} variant="outline" className="w-full sm:w-auto">Cancel</Button>
