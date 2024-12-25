@@ -59,7 +59,7 @@ export default function CurrentlyBuilding() {
       setIsModalOpen(false)
       setIsRegistered(true)
       toast.success(
-        "🎉 Success! You've been registered. Get ready for exciting updates coming your way!",
+        "Success! You've been registered. Get ready for exciting updates coming your way!",
         {
           duration: 5000,
           position: 'bottom-center',
@@ -69,7 +69,7 @@ export default function CurrentlyBuilding() {
             padding: '16px',
             borderRadius: '10px',
           },
-          icon: '🚀',
+          icon: '🤟',
         }
       )
     } catch (error) {
