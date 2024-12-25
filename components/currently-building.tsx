@@ -23,7 +23,7 @@ export default function CurrentlyBuilding() {
                 transition={{ duration: 0.3 }}
               >
                 <Image
-                  src="/placeholder.svg?height=360&width=640"
+                  src="https://raw.githubusercontent.com/pratikpatwe/personal-website/refs/heads/main/app/public-images/new_project_banner.jpg"
                   alt="App Interface"
                   fill
                   sizes="(max-width: 768px) 100vw, 640px"
@@ -31,13 +31,13 @@ export default function CurrentlyBuilding() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                 <div className="absolute bottom-2 md:bottom-4 left-2 md:left-4 text-white">
-                  <h3 className="text-xl md:text-2xl font-bold mb-1 md:mb-2">NextGen AI Assistant</h3>
-                  <p className="text-xs md:text-sm">Started: March 2024</p>
+                  <h3 className="text-xl md:text-2xl font-bold mb-1 md:mb-2">Stay Tuned</h3>
+                  <p className="text-xs md:text-sm">Started: December 2024</p>
                 </div>
               </motion.div>
               <div className="flex flex-col md:flex-row gap-6 md:gap-8">
                 <div className="md:w-2/3">
-                  <p className="mb-4 md:mb-6 text-base md:text-lg">An AI-powered personal assistant with advanced task management and scheduling capabilities, designed to revolutionize productivity.</p>
+                  <p className="mb-4 md:mb-6 text-base md:text-lg">Get ready for an exciting new experience. Stay tuned—something amazing is coming your way!</p>
                   <div className="flex flex-wrap gap-2 mb-4 md:mb-6">
                     <span className="bg-primary/10 text-primary px-2 py-1 rounded-full text-xs md:text-sm font-medium">AI</span>
                     <span className="bg-secondary/20 text-secondary-foreground px-2 py-1 rounded-full text-xs md:text-sm font-medium">Machine Learning</span>
