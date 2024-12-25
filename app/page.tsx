@@ -64,12 +64,12 @@ export default function Home() {
           <section id="launches" className="min-h-screen flex items-center justify-center py-20">
             <Launches />
           </section>
-          <section id="achievements" className="min-h-screen flex items-center justify-center py-20">
+          {/* <section id="achievements" className="min-h-screen flex items-center justify-center py-20">
             <Achievements />
-          </section>
-          <section id="shoutouts" className="min-h-screen flex items-center justify-center py-20">
+          </section> */}
+          {/* <section id="shoutouts" className="min-h-screen flex items-center justify-center py-20">
             <NotableShoutouts />
-          </section>
+          </section> */}
           <section id="contact" className="min-h-screen flex items-center justify-center py-20">
             <Contact />
           </section>

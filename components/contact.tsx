@@ -1,9 +1,14 @@
+"use client"
+
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
+import { database } from '@/lib/firebase'
+import { ref, push, set } from "firebase/database"
+import { toast, Toaster } from 'react-hot-toast'
 
 // Array of placeholder objects
 const PLACEHOLDERS = [
@@ -78,15 +83,60 @@ export default function Contact() {
 
   const handleUserInput = () => setUserInteracted(true) // Stop placeholder rotation
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log({ name, email, message })
+    try {
+      const contactRef = ref(database, 'contacts')
+      const newContactRef = push(contactRef)
+      await set(newContactRef, {
+        name,
+        email,
+        message,
+        timestamp: Date.now()
+      })
+      toast.success(
+        "Thanks for reaching out! I'll get back to you soon.",
+        {
+          duration: 5000,
+          position: 'bottom-center',
+          style: {
+            background: '#10B981',
+            color: '#FFFFFF',
+            padding: '16px',
+            borderRadius: '10px',
+          },
+          icon: '📨',
+        }
+      )
+      // Reset form
+      setName('')
+      setEmail('')
+      setMessage('')
+      setUserInteracted(false)
+    } catch (error) {
+      console.error("Error submitting contact form:", error)
+      toast.error(
+        "Oops! Something went wrong. Please try again.",
+        {
+          duration: 5000,
+          position: 'bottom-center',
+          style: {
+            background: '#EF4444',
+            color: '#FFFFFF',
+            padding: '16px',
+            borderRadius: '10px',
+          },
+          icon: '❌',
+        }
+      )
+    }
   }
 
   const currentPlaceholderSet = PLACEHOLDERS[currentPlaceholder]
 
   return (
     <div className="w-full max-w-md mx-auto px-4">
+      <Toaster />
       <h2 className="text-4xl font-bold mb-8 text-center">Get in Touch</h2>
       <motion.form
         onSubmit={handleSubmit}
