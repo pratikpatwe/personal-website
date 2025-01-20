@@ -1,20 +1,17 @@
-import { Inter } from 'next/font/google'
-import './globals.css'
-import { ThemeProvider } from 'next-themes'
-import ParticleBackground from '@/components/ParticleBackground'
-import Script from 'next/script'
+import { Inter } from "next/font/google"
+import "./globals.css"
+import { ThemeProvider } from "@/components/theme-provider"
+import ParticleBackground from "@/components/ParticleBackground"
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: 'Pratik Patwe - Tech Enthusiast',
-  description: 'an 18-year-old developer building cool stuff and exploring AI',
+  title: "Pratik Patwe - Tech Enthusiast",
+  description: "an 18-year-old developer building cool stuff and exploring AI",
   icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: 'any' }
-    ]
+    icon: [{ url: "/favicon.ico", sizes: "any" }],
   },
-  manifest: '/manifest.json',
+  manifest: "/manifest.json",
 }
 
 export default function RootLayout({
@@ -25,21 +22,45 @@ export default function RootLayout({
   const buildId = process.env.BUILD_ID || Date.now()
 
   return (
-    <html lang="en" suppressHydrationWarning className="scroll-smooth">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} bg-background text-foreground`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-          <meta name="theme-color" content="#020818" media="(prefers-color-scheme: dark)" />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function() {
+                  function setThemeColor(theme) {
+                    const meta = document.querySelector('meta[name="theme-color"]');
+                    if (meta) {
+                      meta.setAttribute('content', theme === 'dark' ? '#020818' : '#ffffff');
+                    }
+                  }
+
+                  const observer = new MutationObserver((mutations) => {
+                    mutations.forEach((mutation) => {
+                      if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                        const isDark = document.documentElement.classList.contains('dark');
+                        setThemeColor(isDark ? 'dark' : 'light');
+                      }
+                    });
+                  });
+
+                  observer.observe(document.documentElement, { attributes: true });
+
+                  // Initial setup
+                  const initialTheme = localStorage.getItem('theme') || 'system';
+                  setThemeColor(initialTheme === 'system' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : initialTheme);
+                })();
+              `,
+            }}
+          />
           <ParticleBackground />
           {children}
         </ThemeProvider>
-        <Script id="cache-bust" strategy="afterInteractive">
-          {`
+        <script
+          id="cache-bust"
+          dangerouslySetInnerHTML={{
+            __html: `
             (function() {
               var scripts = document.getElementsByTagName('script');
               for (var i = 0; i < scripts.length; i++) {
@@ -48,9 +69,11 @@ export default function RootLayout({
                 }
               }
             })();
-          `}
-        </Script>
+          `,
+          }}
+        />
       </body>
     </html>
   )
 }
+
