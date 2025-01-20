@@ -6,16 +6,16 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 
 const launches = [
-  {
-    name: "EcoTrack",
-    logo: "/placeholder.svg?height=50&width=50",
-    launchDate: "January 2024",
-    image: "/placeholder.svg?height=360&width=640",
-    description: "Mobile app for tracking and reducing personal carbon footprint using gamification.",
-    github: "https://github.com/your-handle/ecotrack",
-    visit: "https://ecotrack.app",
-    tags: ["React Native", "Node.js", "MongoDB"],
-  },
+  // {
+  //   name: "EcoTrack",
+  //   logo: "/placeholder.svg?height=50&width=50",
+  //   launchDate: "January 2024",
+  //   image: "/placeholder.svg?height=360&width=640",
+  //   description: "Mobile app for tracking and reducing personal carbon footprint using gamification.",
+  //   github: "https://github.com/your-handle/ecotrack",
+  //   visit: "https://ecotrack.app",
+  //   tags: ["React Native", "Node.js", "MongoDB"],
+  // },
   {
     name: "FinScan",
     logo: "https://fin-scan-gules.vercel.app/FinScan.png",
