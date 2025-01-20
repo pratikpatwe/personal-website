@@ -19,7 +19,6 @@ import { ref, set, get } from "firebase/database"
 import { toast, Toaster } from "react-hot-toast"
 import { useLocalStorage } from "usehooks-ts"
 import { v4 as uuidv4 } from "uuid"
-import { Sparkles } from "lucide-react"
 
 export default function CurrentlyBuilding() {
   const [email, setEmail] = useState("")
@@ -229,7 +228,7 @@ export default function CurrentlyBuilding() {
                   </form>
                 ) : (
                   <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg max-w-sm">
-                    <p className="text-blue-600 dark:text-blue-400 font-medium mb-3">You're registered!</p>
+                    <p className="text-blue-600 dark:text-blue-400 font-medium mb-3">You&apos;re registered!</p>
                     <Button onClick={() => setIsRegistered(false)} variant="outline" className="w-full">
                       Update Email
                     </Button>
@@ -270,7 +269,7 @@ export default function CurrentlyBuilding() {
           </DialogHeader>
           <div className="space-y-4">
             <p className="text-sm text-gray-500 dark:text-gray-400">
-              If you're excited to join the journey, press 'Continue' to proceed.
+              If you&apos;re excited to join the journey, press &apos;Continue&apos; to proceed.
             </p>
             <DialogFooter className="flex flex-col sm:flex-row gap-2">
               <Button onClick={() => setIsModalOpen(false)} variant="outline" className="w-full sm:w-auto">

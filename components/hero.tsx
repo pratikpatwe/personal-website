@@ -5,6 +5,7 @@ import { Github, Linkedin, Twitter, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
+import Image from 'next/image';
 
 const socialLinks = [
   {
@@ -44,9 +45,11 @@ export default function Hero() {
               className="md:w-1/3 md:order-last relative"
             >
               <div className="aspect-square w-full h-full relative overflow-hidden rounded-b-none md:rounded-l-2xl md:rounded-r-none">
-                <img
+                <Image
                   src="https://raw.githubusercontent.com/pratikpatwe/personal-website/refs/heads/main/app/pratikv2.jpg"
                   alt="Pratik Patwe"
+                  width={500}
+                  height={300}
                   className="w-full h-full object-cover object-center scale-105 hover:scale-100 transition-transform duration-1000"
                   loading="eager"
                 />
@@ -96,7 +99,7 @@ export default function Hero() {
                 </h1>
                 
                 <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
-                  Hey, I'm{" "}
+                  Hey, I&apos;m{" "}
                   <span className="text-blue-600 dark:text-blue-400 font-semibold">
                     an 18-year-old developer
                   </span>{" "}
