@@ -1,191 +1,153 @@
-import { motion } from 'framer-motion'
-import Image from 'next/image'
-import { Github, Linkedin, Twitter, Zap } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
+"use client"
+
+import { motion } from "framer-motion"
+import { Github, Linkedin, Twitter, ArrowRight } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { cn } from "@/lib/utils"
+
+const socialLinks = [
+  {
+    Icon: Twitter,
+    href: "https://x.com/PatwePrati11520",
+    label: "Twitter",
+    bgClass: "bg-blue-50 dark:bg-blue-950/50",
+    iconClass: "text-blue-600",
+  },
+  {
+    Icon: Github,
+    href: "https://github.com/pratikpatwe",
+    label: "GitHub",
+    bgClass: "bg-gray-50 dark:bg-gray-900/50",
+    iconClass: "text-gray-700 dark:text-gray-300",
+  },
+  {
+    Icon: Linkedin,
+    href: "https://www.linkedin.com/in/pratik-patwe-7741a0255",
+    label: "LinkedIn",
+    bgClass: "bg-blue-50 dark:bg-blue-950/50",
+    iconClass: "text-blue-600",
+  },
+]
 
 export default function Hero() {
   return (
-    <div className="relative text-center z-10 flex flex-col items-center px-4 w-full max-w-4xl mx-auto pt-36 md:pt-24 overflow-hidden">
-      {/* Animated Profile Image Container */}
-      <motion.div
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{
-          type: 'spring',
-          stiffness: 260,
-          damping: 20,
-          duration: 0.8,
-        }}
-        className="mb-6 relative group"
-      >
-        <div
-          className="absolute -inset-2 
-            bg-gradient-to-br 
-            from-primary/10 
-            to-secondary/10 
-            rounded-2xl 
-            transition-all 
-            duration-1000 
-            ease-in-out 
-            group-hover:scale-105 
-            group-hover:opacity-70 
-            opacity-40
-          "
-        ></div>
-        <Image
-          src="https://raw.githubusercontent.com/pratikpatwe/personal-website/refs/heads/main/app/pratikv2.jpg"
-          alt="Pratik Patwe"
-          width={300}
-          height={300}
-          priority
-          quality={100}
-          className="relative 
-            rounded-2xl 
-            border-2 
-            border-primary/10 
-            shadow-xl 
-            w-32 
-            h-32 
-            md:w-48 
-            md:h-48 
-            object-cover 
-            ring-2 
-            ring-primary/10 
-            group-hover:ring-primary/50 
-            transition-all 
-            duration-300
-          "
-        />
-        <motion.div
-          className="absolute 
-            bottom-0 
-            right-0 
-            bg-primary 
-            text-white 
-            p-2 
-            rounded-full 
-            shadow-lg
-          "
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: 0.8, type: 'spring', stiffness: 300 }}
-        >
-          <Zap 
-            className="w-4 h-4 text-white dark:text-black" 
-            fill="currentColor" 
-            stroke="currentColor" 
-            strokeWidth={2}
-          />
-        </motion.div>
-      </motion.div>
+    <div className="w-full max-w-6xl mx-auto px-4 py-12">
+      <Card className="overflow-hidden border-0 bg-gradient-to-br from-white/80 via-white/50 to-blue-50/30 dark:from-gray-900/80 dark:via-gray-900/50 dark:to-blue-900/30 backdrop-blur-xl shadow-2xl">
+        <CardContent className="p-0">
+          <div className="flex flex-col md:flex-row">
+            {/* Image Section - First on mobile */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="md:w-1/3 md:order-last relative"
+            >
+              <div className="aspect-square w-full h-full relative overflow-hidden rounded-b-none md:rounded-l-2xl md:rounded-r-none">
+                <img
+                  src="https://raw.githubusercontent.com/pratikpatwe/personal-website/refs/heads/main/app/pratikv2.jpg"
+                  alt="Pratik Patwe"
+                  className="w-full h-full object-cover object-center scale-105 hover:scale-100 transition-transform duration-1000"
+                  loading="eager"
+                />
+                {/* Adjusted gradients for better visibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent dark:from-black/60" />
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 mix-blend-overlay" />
+                
+                {/* Repositioned Floating Info Card for mobile */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6 }}
+                  className="absolute bottom-0 left-0 right-0 md:bottom-6 md:left-6 md:right-6"
+                >
+                  <div className="bg-black/10 backdrop-blur-md md:rounded-xl p-4 md:border border-white/10">
+                    <p className="text-white font-medium text-sm md:text-base opacity-90">Turning Ideas into Reality</p>
+                    <p className="text-white/80 text-xs md:text-sm mt-0.5">One Line of Code at a Time</p>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
 
-      {/* Name with Refined Gradient */}
-      <motion.h1
-        className="text-5xl md:text-7xl lg:text-8xl font-black mb-4 text-gradient tracking-tight animate-gradient-x background-size-200 background-animate"
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
-        Pratik Patwe
-      </motion.h1>
+            {/* Content Section - Second on mobile */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="md:w-2/3 flex flex-col justify-center p-8 md:p-16 relative"
+            >
+              <div className="space-y-6 md:space-y-8 relative z-10">
+                {/* Decorative Elements */}
+                <div className="absolute -top-4 -left-4 w-24 h-24 bg-blue-200/20 dark:bg-blue-500/10 rounded-full blur-2xl" />
+                <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-purple-200/20 dark:bg-purple-500/10 rounded-full blur-2xl" />
+                
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  <span className="inline-block px-4 py-2 rounded-full bg-blue-100/80 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium mb-6">
+                    ✨ Available for Projects
+                  </span>
+                </motion.div>
 
-      {/* Subtitle with Enhanced Typography */}
-      <motion.p
-        className="text-xl md:text-2xl lg:text-3xl 
-          mb-8 
-          max-w-2xl 
-          mx-auto 
-          text-muted-foreground 
-          font-medium 
-          relative
-          dark:text-muted-foreground/80
-        "
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-      >
-        Hey, I&apos;m <span className="bg-primary/10 dark:bg-primary/20 px-2 py-1 rounded-lg text-primary dark:text-primary/80">an 18-year-old developer</span> building cool stuff and exploring AI
-      </motion.p>
+                <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white tracking-tight">
+                  Pratik Patwe
+                </h1>
+                
+                <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+                  Hey, I'm{" "}
+                  <span className="text-blue-600 dark:text-blue-400 font-semibold">
+                    an 18-year-old developer
+                  </span>{" "}
+                  crafting innovative solutions at the intersection of code and creativity.
+                </p>
 
-      {/* Social Icons with Enhanced Hover and Mode Adaptation */}
-      <motion.div
-        className="flex justify-center space-x-6 mb-8"
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-      >
-        {[
-          { 
-            Icon: Twitter, 
-            href: "https://x.com/PatwePrati11520", 
-            lightColor: "hover:text-[#1DA1F2]", 
-            darkColor: "dark:hover:text-[#1DA1F2]/80" 
-          },
-          { 
-            Icon: Github, 
-            href: "https://github.com/pratikpatwe", 
-            lightColor: "hover:text-[#333]", 
-            darkColor: "dark:hover:text-white/80" 
-          },
-          { 
-            Icon: Linkedin, 
-            href: "https://www.linkedin.com/in/pratik-patwe-7741a0255", 
-            lightColor: "hover:text-[#0A66C2]", 
-            darkColor: "dark:hover:text-[#0A66C2]/80" 
-          }
-        ].map(({ Icon, href, lightColor, darkColor }) => (
-          <motion.a 
-            key={href}
-            href={href}
-            target="_blank" 
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.9 }}
-            className={cn(
-              "text-muted-foreground/60",
-              "dark:text-muted-foreground/50",
-              "transition-all duration-300 ease-in-out",
-              lightColor,
-              darkColor
-            )}
-          >
-            <Icon 
-              className="w-7 h-7 md:w-9 md:h-9 
-                hover:drop-shadow-lg 
-                dark:hover:drop-shadow-[0_0_5px_rgba(255,255,255,0.3)]" 
-              strokeWidth={1.5} 
-            />
-          </motion.a>
-        ))}
-      </motion.div>
+                {/* Social Links */}
+                <div className="flex gap-4">
+                  {socialLinks.map(({ Icon, href, label, bgClass, iconClass }) => (
+                    <motion.a
+                      key={href}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.05, rotate: 5 }}
+                      whileTap={{ scale: 0.95 }}
+                      className={cn(
+                        "p-3 rounded-xl backdrop-blur-sm",
+                        bgClass,
+                        "shadow-lg hover:shadow-xl",
+                        "transition-all duration-300"
+                      )}
+                      aria-label={label}
+                    >
+                      <Icon className={cn("w-5 h-5", iconClass)} />
+                    </motion.a>
+                  ))}
+                </div>
 
-      {/* CTA Button with Advanced Interaction and Mode Adaptation */}
-      <motion.div
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
-      >
-        <Button
-          size="lg"
-          className={cn(
-            "group relative overflow-hidden",
-            "transition-all duration-300",
-            "shadow-md dark:shadow-lg",
-            // Background and text color based on mode
-            "bg-black text-white hover:bg-black/90",
-            "dark:bg-white dark:text-black dark:hover:bg-gray-100"
-          )}
-          asChild
-        >
-          <a
-            href="#contact"
-            className="flex items-center justify-center relative z-10"
-          >
-            Get in Touch
-          </a>
-        </Button>
-      </motion.div>
+                {/* CTA Button */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}
+                >
+                  <Button
+                    size="lg"
+                    className="group relative bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white rounded-xl px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                    asChild
+                  >
+                    <a href="#contact" className="flex items-center gap-2">
+                      Get in Touch
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </a>
+                  </Button>
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   )
 }
