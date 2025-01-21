@@ -57,16 +57,16 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent dark:from-black/60" />
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 mix-blend-overlay" />
                 
-                {/* Repositioned Floating Info Card for mobile */}
+                {/* Updated Floating Info Card with less blur and consistent rounded corners */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 }}
                   className="absolute bottom-0 left-0 right-0 md:bottom-6 md:left-6 md:right-6"
                 >
-                  <div className="bg-black/10 backdrop-blur-md md:rounded-xl p-4 md:border border-white/10">
-                    <p className="text-white font-medium text-sm md:text-base opacity-90">Turning Ideas into Reality</p>
-                    <p className="text-white/80 text-xs md:text-sm mt-0.5">One Line of Code at a Time</p>
+                  <div className="bg-black/30 backdrop-blur-sm rounded-t-xl md:rounded-xl p-4 md:border border-white/20">
+                    <p className="text-white font-medium text-sm md:text-base opacity-100">Turning Ideas into Reality</p>
+                    <p className="text-white/90 text-xs md:text-sm mt-0.5">One Line of Code at a Time</p>
                   </div>
                 </motion.div>
               </div>
@@ -90,7 +90,7 @@ export default function Hero() {
                   transition={{ delay: 0.3 }}
                 >
                   <span className="inline-block px-4 py-2 rounded-full bg-blue-100/80 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm font-medium mb-6">
-                    ✨ Available for Projects
+                  ⚡ On a Journey to Innovate
                   </span>
                 </motion.div>
 
@@ -103,7 +103,7 @@ export default function Hero() {
                   <span className="text-blue-600 dark:text-blue-400 font-semibold">
                     an 18-year-old developer
                   </span>{" "}
-                  crafting innovative solutions at the intersection of code and creativity.
+                  building cool stuff and exploring AI
                 </p>
 
                 {/* Social Links */}

@@ -26,7 +26,7 @@ const launches = [
       "AI-powered tool that analyzes uploaded bank statements and provides personalized spending suggestions to improve financial management.",
     github: "https://github.com/pratikpatwe/FinScan",
     visit: "https://fin-scan-gules.vercel.app/",
-    tags: ["Next.js", "AI", "Firebase"],
+    tags: ["Node", "Gemini", "Firebase"],
   },
 ]
 
