@@ -94,6 +94,7 @@ export default function CurrentlyBuilding() {
       })
     }
   }
+
   return (
     <div className="w-full max-w-5xl mx-auto px-4 py-16">
       <Toaster />
@@ -105,12 +106,12 @@ export default function CurrentlyBuilding() {
 
       <Card className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border border-gray-200/50 dark:border-gray-800/50">
         <CardContent className="p-0">
-          {/* Image Section */}
+          {/* Image Section - Updated to 16:9 aspect ratio */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="relative w-full aspect-[2/1] md:aspect-[21/9] overflow-hidden rounded-2xl"
+            className="relative w-full aspect-video overflow-hidden rounded-2xl"
           >
             <Image
               src="https://raw.githubusercontent.com/pratikpatwe/personal-website/refs/heads/main/app/public-images/new_project_banner.jpg"

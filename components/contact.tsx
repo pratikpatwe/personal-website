@@ -1,14 +1,16 @@
 "use client"
 
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
+import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card'
 import { database } from '@/lib/firebase'
 import { ref, push, set } from "firebase/database"
 import { toast, Toaster } from 'react-hot-toast'
+import { Send, User, Mail, MessageSquare } from 'lucide-react'
 
 // Array of placeholder objects
 const PLACEHOLDERS = [
@@ -70,6 +72,7 @@ export default function Contact() {
   const [message, setMessage] = useState('')
   const [currentPlaceholder, setCurrentPlaceholder] = useState(0)
   const [userInteracted, setUserInteracted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   useEffect(() => {
     if (userInteracted) return // Stop updating if user interacted
@@ -85,6 +88,8 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setIsSubmitting(true)
+    
     try {
       const contactRef = ref(database, 'contacts')
       const newContactRef = push(contactRef)
@@ -94,6 +99,7 @@ export default function Contact() {
         message,
         timestamp: Date.now()
       })
+      
       toast.success(
         "Thanks for reaching out! I'll get back to you soon.",
         {
@@ -108,6 +114,7 @@ export default function Contact() {
           icon: '📨',
         }
       )
+      
       // Reset form
       setName('')
       setEmail('')
@@ -129,6 +136,8 @@ export default function Contact() {
           icon: '❌',
         }
       )
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -212,9 +221,17 @@ export default function Contact() {
             />
           </motion.div>
         </div>
-        <Button type="submit" className="w-full">Send Message</Button>
+        <Button type="submit" className="w-full">
+          <motion.span
+            className="flex items-center justify-center gap-2"
+            initial={{ opacity: 1 }}
+            animate={{ opacity: isSubmitting ? 0.7 : 1 }}
+          >
+            {isSubmitting ? 'Sending...' : 'Send Message'}
+            <Send className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </motion.span>
+        </Button>
       </motion.form>
     </div>
   )
 }
-
