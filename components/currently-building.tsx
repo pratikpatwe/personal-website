@@ -62,7 +62,7 @@ export default function CurrentlyBuilding() {
         <div className="flex items-center gap-3">
           <div className="h-8 w-8 rounded-full bg-white/20 flex items-center justify-center">
           </div>
-          <p className="font-medium">You've been registered successfully!</p>
+          <p className="font-medium">You&apos;ve been registered successfully!</p>
         </div>,
         {
           duration: 4000,
@@ -182,7 +182,7 @@ export default function CurrentlyBuilding() {
               ) : (
                 <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 border border-blue-100 dark:border-blue-800">
                   <p className="text-blue-600 dark:text-blue-400 font-medium mb-3">
-                    You're registered for early access!
+                    You&apos;re registered for early access!
                   </p>
                   <Button 
                     onClick={() => setIsRegistered(false)} 
