@@ -135,8 +135,8 @@ export default function CurrentlyBuilding() {
           <div className="p-6 md:p-8 space-y-8">
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
               <div className="space-y-2">
-                <h3 className="text-2xl font-bold">Secret Project</h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400">Started: December 2024</p>
+                <h3 className="text-2xl font-bold">Vocalytics</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Started: Jan 2025</p>
               </div>
               
               <div className="flex flex-wrap gap-2">
@@ -153,7 +153,7 @@ export default function CurrentlyBuilding() {
 
             <div className="prose prose-gray dark:prose-invert max-w-none">
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                Get ready for an exciting new experience that combines cutting-edge AI with seamless user interaction.
+              Turn Customer Voices into Actionable Insights with Emotion-Powered Feedback Analytics
               </p>
             </div>
 
