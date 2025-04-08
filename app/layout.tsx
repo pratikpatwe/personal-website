@@ -17,8 +17,7 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Pratik Patwe | Developer & Entrepreneur",
   description:
-    "Portfolio of Pratik Patwe - Developer, Indie Hacker, and Entrepreneur specializing in AI software solutions.",
-    generator: 'v0.dev'
+    "Pratik Patwe - Developer, Indie Hacker, and Entrepreneur specializing in AI software solutions.",
 }
 
 export default function RootLayout({
