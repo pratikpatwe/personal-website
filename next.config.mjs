@@ -1,7 +1,7 @@
-let userConfig = undefined;
+let userConfig = undefined
 try {
   // try to import ESM first
-  userConfig = await import('./v0-user-next.config.mjs');
+  userConfig = await import('./v0-user-next.config.mjs')
 } catch (e) {
   try {
     // fallback to CJS import
@@ -26,37 +26,12 @@ const nextConfig = {
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
-    appDir: true, // Ensure App Router is enabled
   },
-  generateEtags: false, // Disable etags to avoid weird cache mismatches
+}
 
-  // Add headers to prevent caching issues across devices
-  async headers() {
-    return [
-      {
-        source: "/(.*)",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "no-store, no-cache, must-revalidate, proxy-revalidate",
-          },
-          {
-            key: "Pragma",
-            value: "no-cache",
-          },
-          {
-            key: "Expires",
-            value: "0",
-          },
-        ],
-      },
-    ];
-  },
-};
-
-// Merge external user config if available
 if (userConfig) {
-  const config = userConfig.default || userConfig;
+  // ESM imports will have a "default" property
+  const config = userConfig.default || userConfig
 
   for (const key in config) {
     if (
@@ -66,11 +41,11 @@ if (userConfig) {
       nextConfig[key] = {
         ...nextConfig[key],
         ...config[key],
-      };
+      }
     } else {
-      nextConfig[key] = config[key];
+      nextConfig[key] = config[key]
     }
   }
 }
 
-export default nextConfig;
+export default nextConfig
