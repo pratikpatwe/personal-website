@@ -71,8 +71,13 @@ interface ProjectCardProps {
 const ProjectCard = ({ title, description, image, tags, link }: ProjectCardProps) => {
   return (
     <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300">
-      <div className="relative h-[240px] w-full">
-        <Image src={image || "/placeholder.svg"} alt={title} fill className="object-cover" />
+      <div className="relative w-full aspect-video">
+        <Image
+          src={image || "/placeholder.svg"}
+          alt={title}
+          fill
+          className="object-cover"
+        />
       </div>
       <div className="p-6">
         <div className="flex flex-wrap gap-2 mb-4">

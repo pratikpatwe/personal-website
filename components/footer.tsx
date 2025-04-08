@@ -14,20 +14,31 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8">
-            <Link href="/" className="text-foreground hover:text-accent transition-colors">
-              Home
-            </Link>
-            <Link href="/#launches" className="text-foreground hover:text-accent transition-colors">
-              Launches
-            </Link>
-            <Link href="/Blog" className="text-foreground hover:text-accent transition-colors">
-              Blog
-            </Link>
-            <Link href="/#contact" className="text-foreground hover:text-accent transition-colors">
-              Contact
-            </Link>
-          </div>
+          <nav>
+            <ul className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8">
+              <li>
+                <Link href="/" className="text-foreground hover:text-accent transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/#launches" className="text-foreground hover:text-accent transition-colors">
+                  Launches
+                </Link>
+              </li>
+              <li>
+                <Link href="/Blog" className="text-foreground hover:text-accent transition-colors">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link href="/#contact" className="text-foreground hover:text-accent transition-colors">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </nav>
+
         </div>
 
         <div className="mt-12 pt-6 border-t text-center md:text-left text-muted-foreground">
